@@ -197,8 +197,8 @@ end
 ### Chạy bằng Docker
 
 ```bash
-docker build -t ror_using_docker .
-docker run --rm -it -p 3000:3000 ror_using_docker
+docker build -t backend-with-rails .
+docker run --rm -it -p 3000:3000 backend-with-rails
 ```
 
 ### Chạy local (không Docker)
