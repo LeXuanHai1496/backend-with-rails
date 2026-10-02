@@ -4,15 +4,15 @@ services:
     image: postgres:16-alpine
     container_name: database
     environment:
-      - POSTGRES_USER=admin
-      - POSTGRES_PASSWORD=admin
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
       - POSTGRES_DB=backend-with-rails
     ports:
       - "5433:5432"
     volumes:
       - postgres-data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U admin -d backend-with-rails"]
+      test: ["CMD-SHELL", "pg_isready -U postgres -d backend-with-rails"]
       interval: 5s
       timeout: 5s
       retries: 10
@@ -33,7 +33,7 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - DATABASE_URL=postgres://admin:admin@database:5432/backend-with-rails
+      - DATABASE_URL=postgres://postgres:postgres@database:5432/backend-with-rails
       - REDIS_URL=redis://redis:6379/0
     depends_on:
       database:
