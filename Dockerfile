@@ -19,7 +19,7 @@ WORKDIR /rails
 # libjemalloc2 + curl: đồng bộ với Dockerfile production, không bắt buộc
 # nhưng để môi trường dev/production gần giống nhau nhất có thể.
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y build-essential curl git libjemalloc2 libpq-dev pkg-config && \
+    apt-get install --no-install-recommends -y build-essential curl git libjemalloc2 libpq-dev libvips pkg-config && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 # Chỉ copy Gemfile trước để tận dụng layer cache của Docker — bundle install
